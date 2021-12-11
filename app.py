@@ -57,6 +57,14 @@ def get_request(testing_input):
         and_count_responses.append(requests.get(and_count_urls[i]))
 
     for i in range(len(proxys)):
+        comma_count_response_times.append(comma_count_responses[i].elapsed.total_seconds())
+        vowel_count_response_times.append(vowel_count_responses[i].elapsed.total_seconds())
+        word_count_response_times.append(word_count_responses[i].elapsed.total_seconds())
+        char_count_response_times.append(char_count_responses[i].elapsed.total_seconds())
+        avg_word_response_times.append(avg_word_responses[i].elapsed.total_seconds())
+        and_count_response_times.append(and_count_responses[i].elapsed.total_seconds())
+
+    for i in range(len(proxys)):
         comma_count_status_codes.append(comma_count_responses[i].status_code)
         vowel_count_status_codes.append(vowel_count_responses[i].status_code)
         word_count_status_codes.append(word_count_responses[i].status_code)
@@ -103,6 +111,12 @@ def get_request(testing_input):
                            word_count_json=word_count_json,
                            char_count_json=char_count_json,
                            avg_word_json=avg_word_json,
+                           comma_count_response_times=comma_count_response_times,
+                           vowel_count_response_times=vowel_count_response_times,
+                           word_count_response_times=avg_word_response_times,
+                           char_count_response_times=char_count_response_times,
+                           and_count_response_times=and_count_response_times,
+                           avg_word_response_times=avg_word_response_times
                            )
 
 
