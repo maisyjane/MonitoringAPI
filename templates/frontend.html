@@ -1,0 +1,257 @@
+{% extends "base.html" %}
+{% block content %}
+    <h3>
+  QUB Editoron
+  <small class="text-muted">Monitoring & Metrics</small>
+</h3>
+<form role = "form" method = 'POST' action='/'>
+    <input type="text" placeholder="Test Input..." name="Test" id="Test">
+    <button type="submit" id="TestButton"class="btn btn-success" data-toggle="modal" data-target="#searchingModal"><span class="material-icons">search</span></button></center>
+    </form>
+<br><h4>Proxy 1</h4>
+<div class="row">
+  <div class="col-sm-2">
+  {% if word_count_status_codes[0]==200 %}
+    <div class="card text-white bg-success mb-3">
+  {% else %}
+    <div class="card text-white bg-danger mb-3">
+  {% endif %}
+      <div class="card-body">
+        <h5 class="card-title">WORD COUNT</h5>
+        <p class="card-text">Response: {{ word_count_json[0] }}</p><p class="card-text">Status: {{ word_count_status_codes[0] }}</p>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-2">
+    {% if char_count_status_codes[0]==200 %}
+    <div class="card text-white bg-success mb-3">
+    {% else %}
+    <div class="card text-white bg-danger mb-3">
+    {% endif %}
+      <div class="card-body">
+        <h5 class="card-title">CHAR COUNT</h5>
+        <p class="card-text">Response: {{ char_count_json[0] }}</p><p class="card-text">Status: {{ char_count_status_codes[0] }}</p>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-2">
+    {% if vowel_count_status_codes[0]==200 %}
+    <div class="card text-white bg-success mb-3">
+  {% else %}
+    <div class="card text-white bg-danger mb-3">
+  {% endif %}
+      <div class="card-body">
+        <h5 class="card-title">VOWEL COUNT</h5>
+        <p class="card-text">Response: {{ vowel_count_json[0] }}</p><p class="card-text">Status: {{ vowel_count_status_codes[0] }}</p>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-2">
+    {% if and_count_status_codes[0]==200 %}
+    <div class="card text-white bg-success mb-3">
+  {% else %}
+    <div class="card text-white bg-danger mb-3">
+  {% endif %}
+      <div class="card-body">
+        <h5 class="card-title">INSTANCES OF AND</h5>
+        <p class="card-text">Response: {{ and_count_json[0] }}</p><p class="card-text">Status: {{ and_count_status_codes[0] }}</p>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-2">
+    {% if avg_word_status_codes[0]==200 %}
+    <div class="card text-white bg-success mb-3">
+  {% else %}
+    <div class="card text-white bg-danger mb-3">
+  {% endif %}
+      <div class="card-body">
+        <h5 class="card-title">AVG WORD LENGTH</h5>
+        <p class="card-text">Response: {{ avg_word_json[0] }}</p><p class="card-text">Status: {{ avg_word_status_codes[0] }}</p>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-2">
+    {% if comma_count_status_codes[0]==200 %}
+    <div class="card text-white bg-success mb-3">
+  {% else %}
+    <div class="card text-white bg-danger mb-3">
+  {% endif %}
+      <div class="card-body">
+        <h5 class="card-title">COMMA COUNT</h5>
+        <p class="card-text">Response: {{ comma_count_json[0] }}</p><p class="card-text">Status: {{ comma_count_status_codes[0] }}</p>
+      </div>
+    </div>
+  </div>
+</div><br>
+<h4>Proxy 2</h4>
+<div class="row">
+  <div class="col-sm-2">
+    {% if word_count_status_codes[1]==200 %}
+    <div class="card text-white bg-success mb-3">
+  {% else %}
+    <div class="card text-white bg-danger mb-3">
+  {% endif %}
+      <div class="card-body">
+        <h5 class="card-title">WORD COUNT</h5>
+        <p class="card-text">Response: {{ word_count_json[1] }}</p><p class="card-text">Status: {{ word_count_status_codes[1] }}</p>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-2">
+    {% if char_count_status_codes[1]==200 %}
+    <div class="card text-white bg-success mb-3">
+  {% else %}
+    <div class="card text-white bg-danger mb-3">
+  {% endif %}
+      <div class="card-body">
+        <h5 class="card-title">CHAR COUNT</h5>
+        <p class="card-text">Response: {{ char_count_json[1] }}</p><p class="card-text">Status: {{ char_count_status_codes[1] }}</p>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-2">
+    {% if vowel_count_status_codes[1]==200 %}
+    <div class="card text-white bg-success mb-3">
+  {% else %}
+    <div class="card text-white bg-danger mb-3">
+  {% endif %}
+      <div class="card-body">
+        <h5 class="card-title">VOWEL COUNT</h5>
+        <p class="card-text">Response: {{ vowel_count_json[1] }}</p><p class="card-text"><p class="card-text">Status: {{ vowel_count_status_codes[1] }}</p>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-2">
+    {% if and_count_status_codes[1]==200 %}
+    <div class="card text-white bg-success mb-3">
+  {% else %}
+    <div class="card text-white bg-danger mb-3">
+  {% endif %}
+      <div class="card-body">
+        <h5 class="card-title">INSTANCES OF AND</h5>
+        <p class="card-text">Response: {{ and_count_json[1] }}</p><p class="card-text">Status: {{ and_count_status_codes[1] }}</p>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-2">
+    {% if avg_word_status_codes[1]==200 %}
+    <div class="card text-white bg-success mb-3">
+  {% else %}
+    <div class="card text-white bg-danger mb-3">
+  {% endif %}
+      <div class="card-body">
+        <h5 class="card-title">AVG WORD LENGTH</h5>
+        <p class="card-text">Response: {{ avg_word_json[1] }}</p><p class="card-text">Status: {{ avg_word_status_codes[1] }}</p>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-2">
+    {% if comma_count_status_codes[1]==200 %}
+    <div class="card text-white bg-success mb-3">
+  {% else %}
+    <div class="card text-white bg-danger mb-3">
+  {% endif %}
+      <div class="card-body">
+        <h5 class="card-title">COMMA COUNT</h5>
+        <p class="card-text">Response: {{ comma_count_json[1] }}</p><p class="card-text">Status: {{ comma_count_status_codes[1] }}</p>
+      </div>
+    </div>
+  </div>
+</div><br>
+<h4>Proxy 3</h4>
+   <div class="row">
+  <div class="col-sm-2">
+    {% if word_count_status_codes[2]==200 %}
+    <div class="card text-white bg-success mb-3">
+  {% else %}
+    <div class="card text-white bg-danger mb-3">
+  {% endif %}
+      <div class="card-body">
+        <h5 class="card-title">WORD COUNT</h5>
+        <p class="card-text">Response: {{ word_count_json[2] }}</p><p class="card-text">Status: {{ word_count_status_codes[2] }}</p>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-2">
+    {% if char_count_status_codes[2]==200 %}
+    <div class="card text-white bg-success mb-3">
+  {% else %}
+    <div class="card text-white bg-danger mb-3">
+  {% endif %}
+      <div class="card-body">
+        <h5 class="card-title">CHAR COUNT</h5>
+        <p class="card-text">Response: {{ char_count_json[2] }}</p><p class="card-text">Status: {{ char_count_status_codes[2] }}</p>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-2">
+    {% if vowel_count_status_codes[2]==200 %}
+    <div class="card text-white bg-success mb-3">
+  {% else %}
+    <div class="card text-white bg-danger mb-3">
+  {% endif %}
+      <div class="card-body">
+        <h5 class="card-title">VOWEL COUNT</h5>
+        <p class="card-text">Response: {{ vowel_count_json[2] }}</p><p class="card-text">Status: {{ vowel_count_status_codes[2] }}</p>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-2">
+    {% if and_count_status_codes[2]==200 %}
+    <div class="card text-white bg-success mb-3">
+  {% else %}
+    <div class="card text-white bg-danger mb-3">
+  {% endif %}
+      <div class="card-body">
+        <h5 class="card-title">INSTANCES OF AND</h5>
+        <p class="card-text">Response: {{ and_count_json[2] }}</p><p class="card-text">Status: {{ and_count_status_codes[2] }}</p>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-2">
+    {% if avg_word_status_codes[2]==200 %}
+    <div class="card text-white bg-success mb-3">
+  {% else %}
+    <div class="card text-white bg-danger mb-3">
+  {% endif %}
+      <div class="card-body">
+        <h5 class="card-title">AVG WORD LENGTH</h5>
+        <p class="card-text">Response: {{ avg_word_json[2] }}</p><p class="card-text">Status: {{ avg_word_status_codes[2] }}</p>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-2">
+    {% if comma_count_status_codes[2]==200 %}
+    <div class="card text-white bg-success mb-3">
+  {% else %}
+    <div class="card text-white bg-danger mb-3">
+  {% endif %}
+      <div class="card-body">
+        <h5 class="card-title">COMMA COUNT</h5>
+        <p class="card-text">Response: {{ comma_count_json[2] }}</p><p class="card-text">Status: {{ comma_count_status_codes[2] }}</p>
+      </div>
+    </div>
+  </div>
+</div><br>
+{% endblock %}
+{% block scripts %}
+    {# Script to load the modal when a search is triggered #}
+    <script>
+    $(document).ready(function() {
+      $("form > button").on("submit", function(e) {
+        $("#searchingModal").modal(
+            {
+            backdrop: "static", //remove ability to close modal with click
+            keyboard: false, //remove option to close with keyboard#}
+            show: true, //Display loader!
+            zIndex: 1000
+        }
+        );
+        setTimeout(function() {
+          $("#searchingModal").modal("hide");
+        }, $(document).ready());
+      });
+    });
+
+    </script>
+{% endblock %}
