@@ -23,7 +23,7 @@ app.config["MAIL_PASSWORD"] = 'editoron1'
 mail = Mail(app)
 
 
-@scheduler.task("interval", id="monitor", seconds=40, misfire_grace_time=900)
+@scheduler.task("interval", id="monitor", minutes=30, misfire_grace_time=900)
 @app.route('/', methods=['GET'])
 def monitoring():
     with scheduler.app.app_context():
@@ -150,7 +150,7 @@ def get_request(parameter):
 
     if danger:
         alert()
-    print("job")
+    print("Scheduler: New Job Starting")
     # response_times = comma_count_response_times + char_count_response_times + word_count_response_times + \
     # avg_word_response_times + and_count_response_times + vowel_count_response_times
     # write2csv(response_times)
@@ -183,7 +183,7 @@ def alert():
 
 
 def write2csv(values):
-    with open('ResponseTimes.csv', 'w', newline='') as file:
+    with open('../ResponseTimes.csv', 'w', newline='') as file:
         writer = csv.writer(file)
         for value in values:
             writer.writerow(value)
@@ -192,4 +192,4 @@ def write2csv(values):
 if __name__ == '__main__':
     scheduler.init_app(app)
     scheduler.start()
-    app.run(host='0.0.0.0', port=5002, debug=True)
+    app.run(host='0.0.0.0', port=5002)
