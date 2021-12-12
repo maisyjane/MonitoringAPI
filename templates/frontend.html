@@ -4,7 +4,7 @@
   QUB Editoron
   <small class="text-muted">Monitoring & Metrics</small>
 </h3>
-<form role = "form" method = 'POST' action='/'>
+<form role = "form" method = 'POST' action='/manual'>
     <input type="text" placeholder="Test Input..." name="Test" id="Test">
     <button type="submit" id="TestButton"class="btn btn-success" data-toggle="modal" data-target="#searchingModal"><span class="material-icons">search</span></button></center>
     </form>
@@ -233,7 +233,6 @@
     </div>
   </div>
 </div><br>
-{% endblock %}
 {% block scripts %}
     {# Script to load the modal when a search is triggered #}
     <script>
@@ -254,4 +253,5 @@
     });
 
     </script>
+{% endblock %}
 {% endblock %}
